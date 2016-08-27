@@ -1,56 +1,47 @@
+# Plan du rapport
 
-# Introduction
+* Introduction
+* Contexte du stage (non technique)
+  * Inria
+  * Le projet
+  * Equipe
 
-# Contexte du stage (non technique)
+* Software Heritage (présentation plus technique
+  * Data model
+  * Infrastructure
+    * Serveurs Inria
+    * Serveurs externes
+  * Architecture logicielle
+    * Loaders
+    * Storage & Database
+    * Webview
+  * Travail effectué
 
-## Inria
+* Object Storage
+  * Fonctionnement (k-v, hashcode, API)
+  * Evolution de l'UML
+  * Content integrity checker
 
-## Le projet
+* Archiver
+  * Objectif de l'archiver (plusieurs copies)
+  * Fonctionnement de l'archiver (asynchrone)
+  * Première version
+  * Seconde version
 
-## Equipe
+* SWH Vault
 
-# Software Heritage (présentation plus technique)
+* Méthodologie de travail
 
-## Data model
+* Conclusion
 
-## Infrastructure
+* Annexes
 
-### Serveurs Inria (+ détails)
 
-### Partenaires
+# Compilation
 
-## Architecture logicielle
+[compile.sh](compile.sh)
 
-### Loaders
+## Requirement
 
-### Storage & Database
-
-### Web view
-
-## Travail effectué
-
-# Object Storage
-
-## Fonctionnement (key-value, hashcode, API, ...) + Architecture initiale
-
-## Les modifications
-
-## Content integrity checker
-
-# Archiver
-
-## Objectif (plusieurs copies)
-
-## Fonctionnement
-
-## Première version
-
-## Seconde version
-
-# SWH Vault
-
-# Méthodologie de travail
-
-# Conclusion
-
-# Annexes
+* pandoc
+* plantuml
