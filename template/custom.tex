@@ -7,21 +7,33 @@ $if(lang)$
 \usepackage[$lang$]{babel}
 $endif$
 
-%% Police -----------
+%% Rendering --------
+\usepackage[top=$if(mtop)$$mtop$$else$3cm$endif$,bottom=$if(mbot)$$mbot$$else$3cm$endif$,left=$if(mleft)$$mleft$$else$3.2cm$endif$cm,right=$if(mright)$$mright$$else$3.2cm$endif$,headsep=10pt,letterpaper]{geometry} % Page margin
+%% Specify colors by name
+\usepackage{xcolor}
+\definecolor{ocre}{RGB}{51,102,0}
+
+%% Font -------------
 $if(fontfamily)$
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
 $else$
 \usepackage{lmodern}
 $endif$
+\usepackage{avant}              % Use Avantgarde font for headings
 
 %% Misc packages ----
 \usepackage[]{hyperref}
 \usepackage{titlesec}
 \newcommand{\sectionbreak}{\clearpage}
 
-%% Custom commands
+%% Custom commands ---
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%% Include heading customization
+$if(heading-file)$
+\input{$heading-file$}
+$endif$
 
 
 %% Title data -------
@@ -41,6 +53,7 @@ $if(institute)$
 $endif$
 \date{$date$}
 
+%% Document ---------
 
 \begin{document}
 
