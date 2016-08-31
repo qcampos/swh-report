@@ -8,7 +8,7 @@ $if(lang)$
 $endif$
 
 %% Rendering --------
-\usepackage[top=$if(mtop)$$mtop$$else$3cm$endif$,bottom=$if(mbot)$$mbot$$else$3cm$endif$,left=$if(mleft)$$mleft$$else$3.2cm$endif$cm,right=$if(mright)$$mright$$else$3.2cm$endif$,headsep=10pt,letterpaper]{geometry} % Page margin
+\usepackage[top=3cm,bottom=3cm,left=3.2cm,right=3.2cm,headsep=10pt,letterpaper]{geometry} % Page margin
 %% Specify colors by name
 \usepackage{xcolor}
 \definecolor{ocre}{RGB}{51,102,0}
@@ -25,6 +25,7 @@ $endif$
 \usepackage[]{hyperref}
 \usepackage{titlesec}
 \newcommand{\sectionbreak}{\clearpage}
+\usepackage{graphicx}
 
 %% Custom commands ---
 \providecommand{\tightlist}{%

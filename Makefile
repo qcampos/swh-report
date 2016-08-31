@@ -5,10 +5,13 @@ FILES= pp.headers.md p0.intro.md p1.context.md p2.swh.md p3.archiver.md p4.objst
 all: report
 
 
-report: images template
+report: images
 	@echo "Compile report"
-	pandoc $(FILES) -o $(OUTPUT) --template $(TEMPLATE) -N
+	pandoc $(FILES) -o $(OUTPUT) --template $(TEMPLATE) -N --chapters
 
 images: images/*.uml
-	@echo "Compile uml diagrams"
-	plantuml $?
+	plantuml `find images/*.uml` -tpdf
+
+clean:
+	@rm -rf $(OUTPUT)
+	@rm -rf images/*.png images/*.svg images/*.pdf
