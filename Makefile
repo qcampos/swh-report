@@ -1,8 +1,11 @@
 OUTPUT=report.pdf
-TEMPLATE=template/custom.tex
 FILES= pp.headers.md p0.intro.md p1.context.md p2.swh.md p3.archiver.md p4.objstorage.md p5.vault.md p6.methodology.md p7.conclusion.md
 
-all: report
+TEMPLATE=template/custom.tex
+
+PLANTUML=java -jar libs/plantuml.jar
+
+all: images report
 
 
 report: images
@@ -10,7 +13,8 @@ report: images
 	pandoc $(FILES) -o $(OUTPUT) --template $(TEMPLATE) -N --chapters
 
 images: images/*.uml
-	plantuml `find images/*.uml` -tpdf
+	@echo "Compile images"
+	$(PLANTUML) `find images/*.uml` -tpdf
 
 clean:
 	@rm -rf $(OUTPUT)
