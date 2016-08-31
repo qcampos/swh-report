@@ -4,5 +4,7 @@
   author: Quentin Campos
   lang: french
   documentclass: report
+  fontsize: 12pt
   toc: True
+  heading-file: template/structure
 ...
