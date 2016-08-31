@@ -1,0 +1,25 @@
+@startuml
+skinparam shadowing false
+
+package "Software Heritage" <<rect>> {
+	object Database
+	object Storage
+	object Loader
+
+	Loader ---> Storage
+	Storage <---> Database
+}
+
+package "GitHub" <<rect>> {
+	object "Nouveau dépôt" as nRep
+	object "Dépôt déjà visité" as oRep
+}
+
+
+
+nRep --> Loader: " Enregistre le nouveau dépôt"
+
+
+
+
+@enduml
