@@ -1,26 +1,12 @@
 @startuml
 skinparam shadowing false
+
+!include storage.iuml
+!include objstorage_old.iuml
+
 legend
   L'API de Storage n'est pas entièrement renseignée
 endlegend
-
-class Storage {
-      +id: content_add(bytes, [obj_id])
-      +bytes: content_get(list(obj_id))
-      +bool: check(obj_id)
-      -ObjStorage objstorage
-}
-
-class ObjStorage {
-      +id: add(bytes, [obj_id])
-      +bytes: get(obj_id)
-      +bool: contains(obj_id)
-      +check(obj_id)
-      -str: path
-      -int: depth
-      -int: slicing_length
-}
-
 
 Storage --* ObjStorage
 

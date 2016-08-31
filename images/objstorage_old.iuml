@@ -1,0 +1,9 @@
+class ObjStorage {
+      +id: add(bytes, [obj_id])
+      +bytes: get(obj_id)
+      +bool: contains(obj_id)
+      +check(obj_id)
+      -str: path
+      -int: depth
+      -int: slicing_length
+}
