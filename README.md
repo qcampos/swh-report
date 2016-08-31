@@ -39,9 +39,11 @@
 
 # Compilation
 
-[compile.sh](compile.sh)
+```shell
+make
+```
 
 ## Requirement
 
 * pandoc
-* plantuml
+* plantuml (with all -tpdf requirements)
