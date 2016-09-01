@@ -43,7 +43,9 @@
 make
 ```
 
-## Requirement
+## Requirements
 
 * pandoc
-* plantuml (with all -tpdf requirements)
+* Latex
+
+* plantuml (now embeeded)
