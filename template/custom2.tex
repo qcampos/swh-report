@@ -134,4 +134,13 @@ $endif$
 
 $body$
 
+\appendix
+
+$if(include-after)$
+\chapter{Annexes}
+$endif$
+$for(include-after)$
+$include-after$
+$endfor$
+
 \end{document}
