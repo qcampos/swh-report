@@ -1,5 +1,8 @@
-OUTPUT=report.pdf
 FILES= pp.headers.md p0.intro.md p1.context.md p2.swh.md p3.archiver.md p4.objstorage.md p5.vault.md p6.methodology.md p7.conclusion.md
+OUTPUT=report.pdf
+
+ANNEXES= a1.archiver1.md a2.archiver2.md
+ANNEXES_OUTPUT=annexes.tex
 
 TEMPLATE=template/custom2.tex
 CODE_RENDER=template/listings_renderer.tex
@@ -10,8 +13,9 @@ all: images report
 
 
 report:
-	@echo "Compile report"
-	pandoc $(FILES) -o $(OUTPUT) --template $(TEMPLATE) -N --chapters --listings -H $(CODE_RENDER)
+	@echo "Compile annexes"
+	pandoc $(ANNEXES) -o $(ANNEXES_OUTPUT)
+	pandoc $(FILES) -o $(OUTPUT) --template $(TEMPLATE) -N --chapters --listings -H $(CODE_RENDER) --include-after-body $(ANNEXES_OUTPUT)
 
 images: images/*.uml
 	@echo "Compile images"
