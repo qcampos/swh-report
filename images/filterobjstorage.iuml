@@ -1,0 +1,13 @@
+class ObjStorageFilter
+
+class IdObjStorageFilter
+class RegexObjStorageFilter
+class PrefixObjStorageFilter
+
+class ReadObjStorageFilter
+
+ObjStorageFilter <|-- IdObjStorageFilter
+ObjStorageFilter <|-- ReadObjStorageFilter
+
+IdObjStorageFilter <|-- RegexObjStorageFilter
+IdObjStorageFilter <|-- PrefixObjStorageFilter

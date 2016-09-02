@@ -1,0 +1,16 @@
+@startuml
+skinparam shadowing false
+
+!include objstorage.iuml
+!include pathslicingobjstorage.iuml
+!include remoteobjstorage.iuml
+
+class MultiplexerObjStorage
+
+ObjStorage <|-- PathSlicingObjStorage
+ObjStorage <|-- RemoteObjStorage
+ObjStorage <|-- MultiplexerObjStorage
+
+MultiplexerObjStorage --o ObjStorage
+
+@enduml

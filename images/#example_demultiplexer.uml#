@@ -1,0 +1,21 @@
+@startuml
+skinparam shadowing false
+
+object "Requester" as requester
+
+object "ObjStorage demultiplexer" as demultiplexer
+
+object "PathSlicingObjStorage" as ps2 {
+       slicing=0:2/2:4/4:6
+}
+
+object "PathSlicingObjStorage" as ps5 {
+       slicing=0:1/0:5
+}
+
+requester <--> demultiplexer
+
+demultiplexer --o ps2
+demultiplexer --o ps5
+
+@enduml

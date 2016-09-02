@@ -1,0 +1,25 @@
+@startuml
+skinparam shadowing false
+
+!include objstorage.iuml
+
+class FilterObjStorage {
+      -Objstorage delegate
+}
+
+class IdObjStorageFilter
+
+class RegexObjStorageFilter
+
+class ReadObjStorageFilter
+
+FilterObjStorage --o ObjStorage
+
+ObjStorage <|-- FilterObjStorage
+FilterObjStorage <|-- ReadObjStorageFilter
+
+FilterObjStorage <|-- IdObjStorageFilter
+IdObjStorageFilter <|-- RegexObjStorageFilter
+IdObjStorageFilter <|-- PrefixObjStorageFilter
+
+@enduml
