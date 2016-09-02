@@ -5,9 +5,32 @@
 \usepackage{titlesec} % Allows customization of titles
 
 \usepackage{graphicx} % Required for including pictures
-\graphicspath{{images/}} % Specifies the directory where pictures are stored
+\graphicspath{{images/}} % Specifies the directory where pictures are
+                         % stored
 
-\usepackage{lipsum} % Inserts dummy text
+% Redefine \includegraphics so that, unless explicit options are
+% given, the image width will not exceed the width or the height of
+% the page.  Images get their normal width if they fit onto the page,
+% but are scaled down if they would overflow the margins.
+\makeatletter
+\def\ScaleWidthIfNeeded{%
+ \ifdim\Gin@nat@width>0.5\linewidth
+    0.5\linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\def\ScaleHeightIfNeeded{%
+  \ifdim\Gin@nat@height>0.7\textheight
+    0.7\textheight
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\setkeys{Gin}{width=\ScaleWidthIfNeeded,height=\ScaleHeightIfNeeded,keepaspectratio}%
+
 
 \usepackage{tikz} % Required for drawing custom shapes
 
@@ -39,7 +62,7 @@
 {\sffamily\hfill\color{black}\thecontentspage} % Page number
 []
 % Subsection text styling
-\titlecontents{subsection}[10.25cm] % Indentation
+\titlecontents{subsection}[1.25cm] % Indentation
 {\addvspace{1pt}\sffamily\small} % Spacing and font options for subsections
 {\contentslabel[\thecontentslabel]{1.25cm}} % Subsection number
 {}
@@ -246,17 +269,6 @@ innerbottommargin=5pt]{cBox}
 \newenvironment{example}{\begin{exampleT}}{\hfill{\tiny\ensuremath{\blacksquare}}\end{exampleT}}
 \newenvironment{corollary}{\begin{cBox}\begin{corollaryT}}{\end{corollaryT}\end{cBox}}
 
-%----------------------------------------------------------------------------------------
-%	REMARK ENVIRONMENT
-%----------------------------------------------------------------------------------------
-
-\newenvironment{remark}{\par\vspace{10pt}\small % Vertical white space above the remark and smaller font size
-\begin{list}{}{
-\leftmargin=35pt % Indentation on the left
-\rightmargin=25pt}\item\ignorespaces % Indentation on the right
-\makebox[-2.5pt]{\begin{tikzpicture}[overlay]
-\node[draw=ocre!60,line width=1pt,circle,fill=ocre!25,font=\sffamily\bfseries,inner sep=2pt,outer sep=0pt] at (-15pt,0pt){\textcolor{ocre}{R}};\end{tikzpicture}} % Orange R in a circle
-\advance\baselineskip -1pt}{\end{list}\vskip5pt} % Tighter line spacing and white space after remark
 
 %----------------------------------------------------------------------------------------
 %	SECTION NUMBERING IN THE MARGIN

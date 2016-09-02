@@ -83,6 +83,8 @@ $if(graphics)$
  \catcode`\@=11\relax%
  \gdef\includegraphics{\@ifnextchar[{\Oldincludegraphics}{\Oldincludegraphics[width=\ScaleIfNeeded]}}%
 }%
+\graphicspath{{images/}} % Specifies the directory where pictures are
+                         % stored
 $endif$
 \ifxetex
   \usepackage[setpagesize=false, % page size defined by xetex
@@ -135,9 +137,6 @@ $endfor$
 
 $if(title)$
 \title{$title$}
-$endif$
-$if(subtitle)$
-\subtitle{$subtitle$}
 $endif$
 \author{$for(author)$$author$$sep$ \and $endfor$}
 \date{$date$}

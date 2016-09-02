@@ -6,5 +6,6 @@
   documentclass: report
   fontsize: 12pt
   toc: True
+  toc-depth: 1
   heading-file: template/structure
 ...
