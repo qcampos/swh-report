@@ -1,7 +1,7 @@
 FILES= pp.headers.md p0.intro.md p1.context.md p2.swh.md p3.archiver.md p4.objstorage.md p5.vault.md p6.methodology.md p7.conclusion.md
 OUTPUT=report.pdf
 
-ANNEXES= a1.archiver1.md a2.archiver2.md a3.vault.md
+ANNEXES= a1.archiver1.md a2.archiver2.md a3.vault.md a4.database.md
 ANNEXES_OUTPUT=annexes.tex
 
 TEMPLATE=template/custom2.tex
