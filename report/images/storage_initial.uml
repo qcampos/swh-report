@@ -1,0 +1,13 @@
+@startuml
+skinparam shadowing false
+
+!include storage.iuml
+!include objstorage_old.iuml
+
+legend
+  L'API de Storage n'est pas entièrement renseignée
+endlegend
+
+Storage --* ObjStorage
+
+@enduml

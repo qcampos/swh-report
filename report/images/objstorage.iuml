@@ -1,0 +1,8 @@
+class ObjStorage <<Interface>> {
+      +bool: contains(obj_id)
+      +id: add(bytes, [obj_id])
+      +bytes: get(obj_id)
+      +list(bytes): get_batch(list(obj_id))
+      +list(obj_id): get_random_content(batch_size)
+      +void: check(obj_id)
+}

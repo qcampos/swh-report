@@ -1,0 +1,5 @@
+
+- Machines virtuelles (relevant ?)
+- Contenu de Data Model
+- Contenu de Méthodologie de travail
+- Est-ce utile de mettre les blueprint en annexe ?

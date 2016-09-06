@@ -1,0 +1,173 @@
+\documentclass[$if(fontsize)$$fontsize$$endif$]{book} % Default font size and left-justified equations
+
+\usepackage[top=3cm,bottom=3cm,left=3.2cm,right=3.2cm,headsep=10pt,letterpaper]{geometry} % Page margins
+
+$if(lang)$
+\usepackage[$lang$]{babel}
+$endif$
+
+
+%% Specifiy colors by name
+\usepackage{xcolor,lipsum}
+%\definecolor{ocre}{RGB}{176,48,96}
+\definecolor{ocre}{RGB}{25,25,112} % midnight blue
+% \definecolor{ocre}{RGB}{72, 61, 139}
+\definecolor{lightgray}{RGB}{229,229,229}
+
+%% Font rendering
+$if(fontfamily)$
+\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
+$else$
+\usepackage{lmodern}
+$endif$
+\usepackage{avant} % Use the Avantgarde font for headings
+
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+
+%% Custom commands ---
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\input{template/structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+
+$if(listings)$
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily\small,
+    numbers=left,
+    keywordstyle=\color[rgb]{0.13,0.29,0.53}\bfseries,
+    stringstyle=\color[rgb]{0.31,0.60,0.02},
+    commentstyle=\color[rgb]{0.56,0.35,0.01}\itshape,
+    numberstyle=\footnotesize,
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color[RGB]{248,248,248},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=true,
+    breakautoindent=true,
+    escapeinside={\%*}{*)},
+    linewidth=\textwidth,
+    basewidth=0.5em,
+}
+$endif$
+$if(lhs)$
+\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+$endif$
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$if(verbatim-in-note)$
+\usepackage{fancyvrb}
+$endif$
+$if(tables)$
+\usepackage{longtable,booktabs}
+$endif$
+
+
+
+\begin{document}
+
+\let\cleardoublepage\clearpage
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+%% \begingroup
+%% \thispagestyle{empty}
+%% \AddToShipoutPicture*{\put(0,0){\includegraphics[scale=1.25]{heading/title.png}}} % Image background
+%% \centering
+%% \vspace*{5cm}
+%% \par\normalfont\fontsize{35}{35}\sffamily\selectfont
+%% \textbf{$if(title)$$title$$endif$}\\
+%% {\LARGE }\par % Book title
+%% \vspace*{1cm}
+%% {\Huge $if(author)$$author$$endif$}\par % Author name
+%% \endgroup
+
+\begin{titlepage}
+\centering
+\vfill
+\vfill
+\includegraphics[width=6cm]{swh-logo.png}
+\vfill
+\bfseries\Huge Software Heritage\\
+\LARGE Rapport de stage de fin d'étude
+\vfill
+\large Contribution à un logiciel libre visant à archiver la totalité du code publiquement accessible de manière pérenne
+\vfill
+\vfill
+Quentin Campos\\
+Université Paris-Est Marne-la-Vallée
+\vskip0.5cm
+Mardi 6 Septembre 2016
+\vfill
+\vfill
+\small Encadré par\\
+Stefano Zacchiroli\\
+Roberto Di Cosmo
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\clearpage{}
+\paragraph{}
+\newpage{}
+~\vfill
+
+\thispagestyle{empty}
+
+\noindent \textsc{Avril - Septembre 2016, Université Paris-Est Marne-la-Vallée}\\
+
+\noindent Stage encadré par Stefano Zacchiroli et Roberto Di Cosmo\\ % License information
+
+\noindent \textit{Soutenu le 6 Septembre 2016} % Printing/edition date
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+$if(toc)$
+
+\pagestyle{empty} % No headers
+
+
+
+\chapterimage{heading/header.png} % heading image
+
+
+\renewcommand\contentsname{Table des Matières}
+\renewcommand{\bibname}{Bibliographie}
+$if(toc-depth)$
+\setcounter{tocdepth}{$toc-depth$}
+$endif$
+\tableofcontents% Print the table of contents itself
+
+%\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+
+\pagestyle{fancy} % Print headers again
+$endif$
+
+
+$body$
+
+\appendix
+
+$if(include-after)$
+\chapter{Annexes}
+$endif$
+$for(include-after)$
+$include-after$
+$endfor$
+
+\end{document}

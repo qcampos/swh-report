@@ -1,0 +1,35 @@
+@startuml
+skinparam shadowing false
+
+package "Remote" {
+class RemoteObjStorage {
+   +id: add(bytes, [obj_id])
+   +bytes: get(obj_id)
+   +bool: contains(obj_id)
+   +check(obj_id)
+   -str: path
+   -int: depth
+   -int: slicing_length
+}
+class RemoteStorage {
+   +id: content_add(bytes, [obj_id])
+   +bytes: content_get(list(obj_id))
+   +bool: check(obj_id)
+   -ObjStorage objstorage
+}
+}
+
+package "Local" {
+!include storage.iuml
+!include objstorage_old.iuml
+RemoteObjStorage <--> ObjStorageServer: " Http"
+RemoteStorage <--> StorageServer: " Http"
+}
+
+Storage -l-* ObjStorage
+ObjStorageServer --* ObjStorage
+StorageServer --* Storage
+
+
+
+@enduml

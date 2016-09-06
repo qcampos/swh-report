@@ -1,0 +1,114 @@
+\documentclass[$if(fontsize)$$fontsize$,$endif$hidelinks]{$documentclass$}
+
+%% Language ---------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+$if(lang)$
+\usepackage[$lang$]{babel}
+$endif$
+
+%% Rendering --------
+\usepackage[top=3cm,bottom=3cm,left=3.2cm,right=3.2cm,headsep=10pt,letterpaper]{geometry} % Page margin
+%% Specify colors by name
+\usepackage{xcolor}
+\definecolor{ocre}{RGB}{51,102,0}
+
+\lstset{
+    basicstyle=\ttfamily,
+    numbers=left,
+    keywordstyle=\color[rgb]{0.13,0.29,0.53}\bfseries,
+    stringstyle=\color[rgb]{0.31,0.60,0.02},
+    commentstyle=\color[rgb]{0.56,0.35,0.01}\itshape,
+    numberstyle=\footnotesize,
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color[RGB]{248,248,248},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=true,
+    breakautoindent=true,
+    escapeinside={\%*}{*)},
+    linewidth=\textwidth,
+    basewidth=0.5em,
+}
+
+\usepackage{avant}              % Use Avantgarde font for headings
+
+%% Misc packages ----
+\usepackage[]{hyperref}
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
+\usepackage{graphicx}
+
+%% Custom commands ---
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%% Include heading customization
+\input{template/structure}
+
+%% Title data -------
+$if(title)$
+\title{$title$ $if(thanks)$\thanks{$thanks$}$endif$}
+$endif$
+$if(subtitle)$
+\providecommand{\subtitle}[1]{}
+\subtitle{$subtitle$}
+$endif$
+$if(author)$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+$endif$
+$if(institute)$
+\providecommand{\institute}[1]{}
+\institute{$for(institute)$$institute$$sep$ \and $endfor$}
+$endif$
+\date{$date$}
+
+%% Document ---------
+
+\begin{document}
+
+$if(title)$
+\maketitle
+$endif$
+$if(abstract)$
+
+\newpage{}
+
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+
+\newpage{}
+
+%% Tables of content
+$if(toc)$
+{
+$if(colorlinks)$
+\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$black$endif$}
+$endif$
+\setcounter{tocdepth}{$toc-depth$}
+\tableofcontents
+\newpage{}
+}
+$endif$
+$if(lof)$
+\listoffigures
+\newpage{}
+$endif$
+
+%% Content of the document
+$body$
+
+%% Bibliography
+$if(biblatex)$
+\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+$endif$
+
+
+\end{document}
