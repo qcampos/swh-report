@@ -1,8 +1,0 @@
-
-
-class Storage {
-      +id: content_add(bytes, [obj_id])
-      +bytes: content_get(list(obj_id))
-      +bool: check(obj_id)
-      -ObjStorage objstorage
-}

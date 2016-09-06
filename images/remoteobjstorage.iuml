@@ -1,4 +1,0 @@
-class RemoteObjStorage {
-      -str: server_url
-      -int: server_port
-}

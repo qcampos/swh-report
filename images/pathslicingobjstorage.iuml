@@ -1,4 +1,0 @@
-class PathSlicingObjStorage {
-      -str: root
-      -str: slicing
-}
