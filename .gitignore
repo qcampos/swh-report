@@ -1,6 +1,5 @@
-# Don't upload compiled pdfs
-*.pdf
-# *.png
+
 
 # Ignore temp files
 *~
+#*
