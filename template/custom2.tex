@@ -72,6 +72,7 @@ $if(tables)$
 $endif$
 
 
+
 \begin{document}
 
 \let\cleardoublepage\clearpage
@@ -80,24 +81,50 @@ $endif$
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
 
-\begingroup
-\thispagestyle{empty}
-\AddToShipoutPicture*{\put(0,0){\includegraphics[scale=1.25]{heading/title.png}}} % Image background
+%% \begingroup
+%% \thispagestyle{empty}
+%% \AddToShipoutPicture*{\put(0,0){\includegraphics[scale=1.25]{heading/title.png}}} % Image background
+%% \centering
+%% \vspace*{5cm}
+%% \par\normalfont\fontsize{35}{35}\sffamily\selectfont
+%% \textbf{$if(title)$$title$$endif$}\\
+%% {\LARGE }\par % Book title
+%% \vspace*{1cm}
+%% {\Huge $if(author)$$author$$endif$}\par % Author name
+%% \endgroup
+
+\begin{titlepage}
 \centering
-\vspace*{5cm}
-\par\normalfont\fontsize{35}{35}\sffamily\selectfont
-\textbf{$if(title)$$title$$endif$}\\
-{\LARGE }\par % Book title
-\vspace*{1cm}
-{\Huge $if(author)$$author$$endif$}\par % Author name
-\endgroup
+\vfill
+\vfill
+\includegraphics[width=6cm]{swh-logo.png}
+\vfill
+\bfseries\Huge Software Heritage\\
+\LARGE Rapport de stage de fin d'étude
+\vfill
+\large Contribution à un logiciel libre visant à archiver la totalité du code publiquement accessible de manière pérenne
+\vfill
+\vfill
+Quentin Campos\\
+Université Paris-Est Marne-la-Vallée
+\vskip0.5cm
+Mardi 6 Septembre 2016
+\vfill
+\vfill
+\small Encadré par\\
+Stefano Zacchiroli\\
+Roberto Di Cosmo
+\end{titlepage}
 
 %----------------------------------------------------------------------------------------
 %	COPYRIGHT PAGE
 %----------------------------------------------------------------------------------------
 
-\newpage
+\clearpage{}
+\paragraph{}
+\newpage{}
 ~\vfill
+
 \thispagestyle{empty}
 
 \noindent \textsc{Avril - Septembre 2016, Université Paris-Est Marne-la-Vallée}\\
@@ -114,11 +141,9 @@ $if(toc)$
 
 \pagestyle{empty} % No headers
 
-\clearpage{}
-\paragraph{}
-\newpage{}
 
-\chapterimage{heading/toc.png} % heading image
+
+\chapterimage{heading/header.png} % heading image
 
 
 \renewcommand\contentsname{Table des Matières}
