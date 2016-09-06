@@ -1,6 +1,6 @@
 ---
-  title: Software Heritage - Stage de fin d'étude
-  subtitle: Rapport de stage de fin d'étude réalisé au sein d'une équipe développant un projet libre
+  title: Software Heritage
+  subtitle: Rapport de stage de fin d'étude
   author: Quentin Campos
   lang: french
   documentclass: report
