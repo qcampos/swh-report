@@ -1,0 +1,22 @@
+@startuml
+skinparam shadowing false
+
+class ObjStorage {
+      obj_id: add(bytes)
+      bytes: get(obj_id)
+}
+
+ObjStorage <|-- PathSlicingObjStorage
+ObjStorage <|-- MultiplexerObjStorage
+ObjStorage <|-- RemoteObjStorage
+ObjStorage <|-- ObjStorageFilter
+
+ObjStorageFilter --* ObjStorage
+MultiplexerObjStorage "1" --* " n" ObjStorage
+
+ObjStorageFilter <|-- ReadObjStorageFilter
+ObjStorageFilter <|-- IdObjStorageFilter
+IdObjStorageFilter <|-- PrefixObjStorageFilter
+IdObjStorageFilter <|-- RegexObjStorageFilter
+
+@enduml

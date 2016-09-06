@@ -1,0 +1,21 @@
+@startuml
+skinparam shadowing false
+
+object "Archiver copier" as copier {
+       "Copy Content2 from s1 to s2"
+}
+
+object "Server 1" as s1 {
+       Content1
+       Content2
+}
+
+object "Server 2" as s2 {
+       Content1
+       Content3
+}
+
+copier --> s2: "Add\n Content2"
+copier <-- s1: "Retrieve\n Content2"
+
+@enduml

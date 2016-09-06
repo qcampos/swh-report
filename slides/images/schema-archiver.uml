@@ -1,0 +1,23 @@
+@startuml
+skinparam shadowing false
+
+object "Directeur" as adirector
+object "File d'attente" as queue
+package "Worker Celery" <<rect>> {
+	object "Worker" as aworker
+	object "Copier" as acopier
+}
+object "Base de donnée" as database {
+}
+
+
+adirector -r-> queue: "Empile: liste de contenus"
+queue <-r- aworker: "Consomme un job"
+
+aworker -r-> acopier: " Source, destination \n liste de contenus"
+
+adirector <-d-> database: " Contenu succeptible\n d'être archives"
+aworker <-d-> database: " Verifie les contenus nécessitant\n toujours un archivage"
+
+
+@enduml
