@@ -1,0 +1,13 @@
+@startuml
+skinparam shadowing false
+hide fields
+hide methods
+
+class "Object Storage Server" as objstorageserver {
+}
+
+RemoteObjStorage --u|> ObjStorage
+objstorageserver -r-* ObjStorage
+
+RemoteObjStorage <--> objstorageserver: "Http"
+@enduml

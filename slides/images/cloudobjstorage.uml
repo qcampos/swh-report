@@ -1,0 +1,11 @@
+@startuml
+skinparam shadowing false
+hide methods
+hide fields
+
+CloudObjStorage -u-|> ObjStorage
+
+CloudObjStorage <|-- OpenStackCloudObjStorage
+CloudObjStorage <|-- AzureCloudObjStorage
+
+@enduml

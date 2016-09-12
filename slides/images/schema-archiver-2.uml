@@ -1,6 +1,9 @@
 @startuml
 skinparam shadowing false
 
+hide fields
+hide methods
+
 object "Archiver copier" as copier {
        "Copy Content2 from s1 to s2"
 }
