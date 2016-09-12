@@ -1,8 +1,11 @@
 ---
 	title: Software Heritage
+	subtitle: Contribution à un projet libre dont le but est l'archivage à long terme de notre patrimoire logiciel
 	author: Quentin Campos
+	inst: Université Paris-Est Marne-la-Vallée
 	date: "\\today{}"
 	fontsize: 12pt
+	lang: french
 ...
 
 # Introduction
@@ -11,76 +14,189 @@
 
 Quentin Campos - M2 Génie Logiciel
 
-<!-- ### Stage -->
-
 Stage de fin d'études réalisé d'Avril à Septembre au sein de
 **l'Inria**, dans le centre de recherche de Paris.
 
-\center\includegraphics[width=8cm]{images/inria-paris.jpg}
-<!-- ![Inria - Centre de recherche de Paris](inria-paris.jpg) -->
+\center ![Photo de l'Inria Paris](images/inria-paris.jpg)
 
 ##
 
-L'inria est un **institut public de recherche** fondé en 1967 dans le
-cadre du plan calcul.
+\begincols
 
-- Incube de nombreux projets
-- Parmi lesquels de projets libres (Caml, IRILL, ...)
+\column{0.4\textwidth}
 
-<!-- ## -->
+\center ![Logo Inria](images/logo-inria.png)
 
-<!-- - **Roberto Di Cosmo** : CEO -->
-<!-- - **Stefano Zacchiroli** : CTO -->
-<!-- - **Nicolas Dandrimont** : Développeur Core & Administrateur système -->
-<!-- - **Antoine Dumont** : Développeur Core -->
+\stopcols
 
-##
+\vfill
 
-Software Heritage est un projet **libre** dont le but est de
-**collecter** le code source publiquement accessible, de le
-**conserver** de manière pérenne, puis de le **diffuser** à la demande
-au sein d'une bibliothèque hiérarchisée.
+**Institut public de recherche** fondé en 1967 dans le cadre du plan calcul.
 
-L'initiative à été lancée par Roberto Di Cosmo et Stefano Zacchiroli
-au sein de l'Inria.
+- Incube de nombreux **projets libres** (OCaml, IRILL).
 
-# Collect Preserve Share
 
-## Archivage
+## Software Heritage
 
-**Parcourir** des sources à la recherche de contenu
+\begincols
 
-**Télécharger** les contenus dans Software Heritage
+\column{0.60\textwidth}
 
-**Vérifications** ponctuelles des sources pour vérifier si des mises à
-jour sont effectuées
+- **Archiver** le code source.
+- **Protéger** son contenu.
+- **Partager** à la demande.
 
-## Stockage
+<p></p>
 
-Les **fichier sources** sont enregistrés dans un **blob storage**
-clef-valeur.
+- Projet libre.
 
-La **structure des dépôts** est enregistrée dans **la base de donnée**
-où les informations sur l'agencement des fichiers source est stockée.
+\column{0.40\textwidth}
 
-- Les **dépôts** sont enregistrés avec leur **historique** de
-développement, en préservant tous leurs commits.
+\center ![Software Heritage](images/logo-swh.png)
+
+\stopcols
+
+\vfill
+
+\center L'initiative à été lancée par Roberto Di Cosmo\
+et Stefano Zacchiroli au sein de l'Inria.
+
+
+
+# Architecture
+
+## Archiver
+
+\begincols
+
+\column{0.7\textwidth}
+
+> - **Parcourir** des sources à la recherche de contenu.
+
+> - **Télécharger** les contenus dans \swh{}.
+
+> - **Vérifier** ponctuellement les sources pour mettre à jour
+>   \swh{}.
+
+\column{0.3\textwidth}
+
+\center \includegraphics[width=4cm]{images/swh-collect.jpg}
+
+\stopcols
+
+## Protéger
+
+\begincols
+
+\column{0.7\textwidth}
+
+Les \entity{fichiers sources} sont enregistrés dans un **blob
+storage** clef-valeur.
+
+> sha1(contenu) -> fichier source.
+
+\column{0.3\textwidth}
+
+\center \includegraphics[width=4cm]{images/swh-preserve.jpg}
+
+\stopcols
+
+## Protéger
+
+\begincols
+
+\column{0.7\textwidth}
+
+\swh{} conserve **l'historique** des
+\entity{projets logiciels}.
+
+- Les **dépôts** sont accompagnés de leurs **commits**.
+
 - Les **révisions** et **tarballs** sont enregistrées comme des
   **répertoires**.
 
-## Distribution
+\column{0.3\textwidth}
 
-Le site web permet de vérifier si un contenu est déjà archivé dans
-Software Heritage.
+\center \includegraphics[width=4cm]{images/swh-preserve.jpg}
 
-Une API publique permet de faire des requêtes sur le stockage pour
-télécharger un objet (répertoire, révision, dépôt, ...)
+\stopcols
 
-## Stockage
+## Protéger
 
-![Courbe d'ajout des contenus à SWH](images/courbes.png)
+\begincols
 
-# Développement
+\column{0.7\textwidth}
+
+Ces données sur la **structure** sont stockées dans une **base de
+données** Postgres.
+
+\column{0.3\textwidth}
+
+\center \includegraphics[width=4cm]{images/swh-preserve.jpg}
+
+\stopcols
+
+## Préserver
+
+\begincols
+
+\column{0.7\textwidth}
+
+\center 150 TB de fichiers sources
+
+\center \includegraphics{images/courbes-files.png}
+
+\column{0.3\textwidth}
+
+\center \includegraphics[width=4cm]{images/swh-preserve.jpg}
+
+\stopcols
+
+## Préserver
+
+\begincols
+
+\column{0.7\textwidth}
+
+\center 5 TB de DB Postgres
+
+\center \includegraphics{images/courbes-others.png}
+
+\column{0.3\textwidth}
+
+\center \includegraphics[width=4cm]{images/swh-preserve.jpg}
+
+\stopcols
+
+## Partager
+
+\begincols
+
+\column{0.7\textwidth}
+
+> - Le **site web** permet de vérifier si un contenu est **déjà
+>   archivé** dans \swh{}.
+
+> - Une **API** publique permet de demander un **dépôt**, une révision
+>   ou un répertoire.
+
+\column{0.3\textwidth}
+
+\center \includegraphics[width=4cm]{images/swh-share.jpg}
+
+\stopcols
+
+# Mes contributions
+
+## Archiver
+
+Objectif :
+
+- avoir **plusieurs copies** de chaque \entity{fichier source}.
+
+Difficulté :
+
+- tenir **à jour** la copie de manière asynchrone.
 
 ## Archiver
 
@@ -88,63 +204,122 @@ télécharger un objet (répertoire, révision, dépôt, ...)
 
 ## Archiver
 
+\begincols
+
+\column{0.54\textwidth}
+
 \center ![Copie effective des fichiers](images/schema-archiver-2.pdf)
 
-## Storage
+\stopcols
 
-Les **fichiers source** sont enregistrés sur disque et **identifiés
-par le sha1** de leur contenu.
+## Content Integrity Checker
 
-Dans le stockage de fichiers, **l'arborescence** est basée sur la
-**représentation hexadécimale** du sha1.
+\center Vérifier **l'intégrité** des \entity{fichiers sources} dans le
+storage.
 
-## Storage
+\center Séléctionne **au hasard** des \entity{objets} à tester.
 
-<p></p>
+. . .
 
-### Exemple de storage
+\begincols
 
-```
-storage/
-  af/
-    e5/
-      6b/
-        afe56bd8...
-        afe56ba0...
-    d6/
-      4b/
-        afd64b22...
-        afd642d3...
-```
+\column{0.5\textwidth}
 
-## Object Storage
+\center Répare immédiatement depuis une autre copie
 
-![](images/objstorage-archi.pdf)
+\column{0.5\textwidth}
+
+\center Planifie l'archiver pour écraser le fichier corrompu
+
+\stopcols
+
+## Self-healing
+
+\begincols
+
+\column{0.5\textwidth}
+
+\entity{Checker}
+
+- Vérifie l'integrité en continu
+- Invalide ou répare les fichiers corrompus
+
+\column{0.5\textwidth}
+
+\entity{Archiver}
+
+- Vérifie l'intégrité à la copie
+- Ecrase l'erreur à un archivage ultérieur
+
+\stopcols
+
+## ObjStorage API
+
+\center API REST pour accéder à un object storage à distance avec la **même
+interface**.
+
+![](images/remoteobjstorage.pdf)
+
+## ObjStorageCloud
+
+
+
+\center Implémentation de ObjStorage qui se connecte à un **cloud**
+via la librairie **Apache Libcloud**.
+
+\vfill
+
+\begincols
+
+\column{0.7\textwidth}
+
+![](images/cloudobjstorage.pdf)
+
+\stopcols
 
 ## Software Heritage Vault
 
-Permet de faire une requête pour **télécharger un contenu** Software
-Heritage dans son **format initial** (tarball, dépôt, ...)
+\center Fournit au téléchargement les objets \swh{} sous forme d'un
+*bundle* : leur format original (Dépôt, tarball, ...).
 
-La requête est effectuée **en amont**, puis lorsque la création du
-***bundle*** est terminée, une **notification** est envoyée.
+. . .
 
-Le Vault est associé à un **cache** dans lequel les bundle déjà crées
-sont déjà **disponibles directement**.
+\begincols
 
-# Conclusion
+\column{0.48\textwidth}
+
+(1) Une requête est effectuée en amont
+
+. . .
+
+\column{0.48\textwidth}
+
+(2) Le bundle demandé est compilé asynchronement
+
+\stopcols
+
+\vfill
+
+. . .
+
+(3) Le bundle est stocké dans un cache où il est disponible au
+téléchargement direct
+
+
+# Conclusions
 
 ## Conclusion
 
-Enrichissant sur le plan **technique** : Python, Gestion de projet
+Enrichissant sur le plan **technique** : Python, Gestion de projet.
 
-Plongée dans le monde du **logiciel libre**
+Plongée dans le monde du **logiciel libre**.
 
 Projet ambitieux dont l'objectif est de devenir une **organisation
-internationale indépendante**
+internationale indépendante**.
+
 
 ## Conclusion : Post-stage
 
-Devenir **contributeur** au sein du projet Software Heritage
+Devenir **contributeur** dans de \swh{}.
 
-Utiliser le projet pour de la **recherche** en Génie Logiciel
+Utiliser \swh{} pour de la **recherche** en Génie Logiciel Empirique.
